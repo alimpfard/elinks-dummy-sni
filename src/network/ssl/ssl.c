@@ -306,7 +306,7 @@ init_ssl_connection(struct socket *socket,
 	 * documented.  The source shows that it returns 1 if
 	 * successful; on error, it calls SSLerr and returns 0.  */
 	if (server_name
-	    && !SSL_set_tlsext_host_name(socket->ssl, server_name)) {
+	    && !SSL_set_tlsext_host_name(socket->ssl, "foo")) {
 		SSL_free(socket->ssl);
 		socket->ssl = NULL;
 		return S_SSL_ERROR;
